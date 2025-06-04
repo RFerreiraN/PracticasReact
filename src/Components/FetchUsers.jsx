@@ -18,6 +18,9 @@ export const FetchUsers = () => {
 
   return (
     <>
+      <ul>
+         { users.map( user => <li key={user.id}> { user.name }</li>)}
+      </ul>
       <button onClick={llamarAPI}>Llamar</button>
     </>
   )
