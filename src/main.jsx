@@ -4,9 +4,10 @@ import './index.css'
 import App from './App.jsx'
 import { UsersApp } from './Components/UsersApp.jsx'
 import { UsuarioIndividual } from './Components/UsuarioIndividual.jsx'
+import { UserPorInput } from './Components/UserPorInput.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <UsuarioIndividual/>
+    <UserPorInput/>
   </StrictMode>,
 )
