@@ -1,4 +1,7 @@
+
 import { useEffect, useState } from "react";
+import { EndPointUsers } from "./EndPointUsers";
+import { EndPointComments } from "./EndPointComments";
 
 export const FetchUsers = () => {
 
@@ -30,19 +33,16 @@ export const FetchUsers = () => {
   return (
     <>
       <ul>
-         { users.map( user => <li key={user.id}>  { user.name } </li>)}
-      </ul>
-      <p>
-          <button onClick={llamarAPI}>Llamar Usuarios</button>
-      </p>
-
-      <p>
-          <button onClick={llamarComentarios}> Traer Comentarios</button>
-      </p>
+         { endPoint == 'users' ? <EndPointUsers users={users}/> 
+                               : <EndPointComments users={users}/> }
+      </ul> 
       
+       <button onClick={llamarAPI}>Llamar Usuarios</button>
+       <button onClick={llamarComentarios}> Traer Comentarios</button>
+     
     </>
   )
 }
 
 
-//
+//Crear componentes para mostrar los users y los comments
