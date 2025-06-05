@@ -3,9 +3,12 @@ import { useState } from "react";
 export const UserPorInput = () => {
 
   const [userID, setUserID] = useState(''); // lo usanmos para definir el id del usaurio 
-  const [datosUsuario, setDatosUsuario] = useState() // lo usamos para guardar los datos del usuario
+  const [datosUsuario, setDatosUsuario] = useState(null) // lo usamos para guardar los datos del usuario
 
   const fetchInput = async () => {
+    
+    if( !userID || isNaN(userID) ) return
+
     try {
       const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userID}`);
       const data = await response.json()
@@ -41,7 +44,7 @@ export const UserPorInput = () => {
 
       <ul>
         { datosUsuario ? <li> { datosUsuario.name } </li>
-                       : <li>Datos no encontrados</li>                
+                       : <li>Introduzca ID</li>                
         }
       </ul>
     </>
