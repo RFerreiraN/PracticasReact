@@ -9,7 +9,6 @@ export const UsersPorID = () => {
     try {
         const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
         const data = await response.json()
-        console.log(data)
         setUsersObject(data)
     } catch (error) {
         console.error( error )
