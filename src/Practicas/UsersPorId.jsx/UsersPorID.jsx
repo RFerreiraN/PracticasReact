@@ -3,7 +3,7 @@ import {useState} from 'react';
 export const UsersPorID = () => {
 
   const [userId, setUserId] = useState('');
-  const [usersObject, setUsersObject] = useState({})
+  const [usersObject, setUsersObject] = useState(null)
 
   const fetchUsers = async () => {
     try {
@@ -22,7 +22,10 @@ export const UsersPorID = () => {
 
   const buscarPorID = (e) => {
     e.preventDefault()
-    if( userId.length == 0 || isNaN(parseFloat(userId)) || userId > 10 || userId < 1 ) return
+    if( userId.length == 0 || 
+      isNaN(parseFloat(userId)) || 
+      userId > 10 || 
+      userId < 1 ) return
     fetchUsers()
     setUserId('')
   }
@@ -36,7 +39,7 @@ export const UsersPorID = () => {
              onChange={ userInputValue }
       />
       <ul>
-        <li>Nombre: { usersObject.name}</li>
+        { usersObject ? (<li>Nombre: { usersObject.name }</li>)  :  (<li>Introduce un Id entre 1 y 10</li>)}
       </ul>
     </form>
   )
