@@ -26,8 +26,6 @@ export const PracticaUsers = () => {
           visto : true
         }
 
-        console.log(nuevoEmpleado)
-
         setEmpleadosDB([...empleadosDB, nuevoEmpleado])
         setEmpleado('')
     }
